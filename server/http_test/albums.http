@@ -1,24 +1,17 @@
-GET http://localhost:3000/albums
+GET http://localhost:8085/albums
 
 ###
 
-POST http://localhost:3000/albums
+POST http://localhost:8085/albums
 content-type: application/json
 
 {
-  "album_id": "3751588",
   "album_name": "东风破",
-  "public_time": "2007-12-11",
-  "week": 50,
-  "price": 89,
+  "public_time": "Fri Jan 11 2008 00:00:00 GMT+0800 (中国标准时间)",
+  "price":98,
   "cover":
     "http://imgcache.qq.com/music/photo/album_300/08/300_albumpic_3751508_0.jpg",
-  "singers": [
-    {
-      "singer_id": "024",
-      "singer_name": "周杰伦"
-    }
-  ]
+  "singer":[]
 }
 
 # ###
