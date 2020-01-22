@@ -1,0 +1,19 @@
+GET http://localhost:8085/admin/users
+
+############
+POST http://localhost:8085/admin/users/regist
+content-type: application/json
+
+{
+  "user_name":"桐人",
+  "password":"123456"
+}
+
+############
+POST http://localhost:8085/admin/users/login
+content-type: application/json
+
+{
+  "user_name":"张峻郡",
+  "password":"12345678"
+}

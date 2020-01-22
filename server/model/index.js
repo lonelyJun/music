@@ -1,0 +1,39 @@
+//建立模型模块
+const mongoose = require("mongoose");
+
+//用户模型
+const UserSchema = {
+  user_name: String,
+  password: String,
+  level: Number
+};
+
+mongoose.model("User", UserSchema);
+
+//建立专辑模型
+const AlbumsSchema = {
+  album_name: String,
+  public_time: Date,
+  price: Number,
+  cover: String
+};
+
+mongoose.model("Album", AlbumsSchema);
+
+const SingerSchema = {
+  singer_name: String,
+  singer_sex: String,
+  singer_birth: Date,
+  link: String,
+  headImg: String
+};
+
+mongoose.model("Singer", SingerSchema);
+
+const SongSchema = {
+  song_name: String,
+  link: String,
+  headImg: String
+};
+
+mongoose.model("Song", SongSchema);

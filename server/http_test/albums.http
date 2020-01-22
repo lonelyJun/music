@@ -1,0 +1,25 @@
+GET http://localhost:3000/albums
+
+###
+
+POST http://localhost:3000/albums
+content-type: application/json
+
+{
+  "album_id": "3751588",
+  "album_name": "东风破",
+  "public_time": "2007-12-11",
+  "week": 50,
+  "price": 89,
+  "cover":
+    "http://imgcache.qq.com/music/photo/album_300/08/300_albumpic_3751508_0.jpg",
+  "singers": [
+    {
+      "singer_id": "024",
+      "singer_name": "周杰伦"
+    }
+  ]
+}
+
+# ###
+# DELETE http://localhost:3000/books/5e1596ac2527d22850c19dd8
