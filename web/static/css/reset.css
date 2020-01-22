@@ -1,0 +1,455 @@
+/*
+	HTML5 Reset :: style.css
+	----------------------------------------------------------
+	We have learned much from/been inspired by/taken code where offered from:
+
+	Eric Meyer					:: http://meyerweb.com
+	HTML5 Doctor				:: http://html5doctor.com
+	and the HTML5 Boilerplate	:: http://html5boilerplate.com
+
+-------------------------------------------------------------------------------*/
+
+
+/* Let's default this puppy out
+-------------------------------------------------------------------------------*/
+
+html,
+body,
+body div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+figure,
+footer,
+header,
+menu,
+nav,
+section,
+time,
+mark,
+audio,
+video,
+details,
+summary {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    font-size: 100%;
+    font-weight: normal;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+main,
+article,
+aside,
+figure,
+footer,
+header,
+nav,
+section,
+details,
+summary {
+    display: block;
+}
+
+
+/* Handle box-sizing while better addressing child elements:
+   http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+
+/* consider resetting the default cursor: https://gist.github.com/murtaugh/5247154 */
+
+
+/* Responsive images and other embedded objects */
+
+
+/* if you don't have full control over `img` tags (if you have to overcome attributes), consider adding height: auto */
+
+img,
+video,
+object,
+embed {
+    max-width: 100%;
+}
+
+
+/*
+   Note: keeping IMG here will cause problems if you're using foreground images as sprites.
+	In fact, it *will* cause problems with Google Maps' controls at small size.
+	If this is the case for you, try uncommenting the following:
+
+#map img {
+		max-width: none;
+}
+*/
+
+
+/* force a vertical scrollbar to prevent a jumpy page */
+
+html {
+    overflow-y: scroll;
+}
+
+
+/* we use a lot of ULs that aren't bulleted.
+	you'll have to restore the bullets within content,
+	which is fine because they're probably customized anyway */
+
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+a {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title],
+dfn[title] {
+    border-bottom: 1px dotted #000;
+    cursor: help;
+}
+
+
+/* tables still need cellspacing="0" in the markup */
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+th {
+    font-weight: bold;
+    vertical-align: bottom;
+}
+
+td {
+    font-weight: normal;
+    vertical-align: top;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+input,
+select {
+    vertical-align: middle;
+}
+
+pre {
+    white-space: pre;
+    /* CSS2 */
+    white-space: pre-wrap;
+    /* CSS 2.1 */
+    white-space: pre-line;
+    /* CSS 3 (and 2.1 as well, actually) */
+    word-wrap: break-word;
+    /* IE */
+}
+
+input[type="radio"] {
+    vertical-align: text-bottom;
+}
+
+input[type="checkbox"] {
+    vertical-align: bottom;
+}
+
+.ie7 input[type="checkbox"] {
+    vertical-align: baseline;
+}
+
+.ie6 input {
+    vertical-align: text-bottom;
+}
+
+select,
+input,
+textarea {
+    font: 99% sans-serif;
+}
+
+table {
+    font-size: inherit;
+    font: 100%;
+}
+
+small {
+    font-size: 85%;
+}
+
+strong {
+    font-weight: bold;
+}
+
+td,
+td img {
+    vertical-align: top;
+}
+
+
+/* Make sure sup and sub don't mess with your line-heights http://gist.github.com/413930 */
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+
+/* standardize any monospaced elements */
+
+pre,
+code,
+kbd,
+samp {
+    font-family: monospace, sans-serif;
+}
+
+
+/* hand cursor on clickable elements */
+
+.clickable,
+label,
+input[type=button],
+input[type=submit],
+input[type=file],
+button {
+    cursor: pointer;
+}
+
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+
+button,
+input,
+select,
+textarea {
+    margin: 0;
+}
+
+
+/* make buttons play nice in IE */
+
+button,
+input[type=button] {
+    width: auto;
+    overflow: visible;
+}
+
+
+/* scale images in IE7 more attractively */
+
+.ie7 img {
+    -ms-interpolation-mode: bicubic;
+}
+
+
+/* prevent BG image flicker upon hover
+   (commented out as usage is rare, and the filter syntax messes with some pre-processors)
+.ie6 html {filter: expression(document.execCommand("BackgroundImageCache", false, true));}
+*/
+
+
+/* let's clear some floats */
+
+.clearfix:after {
+    content: " ";
+    display: block;
+    clear: both;
+}
+
+
+/*xh 自定义*/
+
+html,
+body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    color: #47364c;
+    font-size: 62.5%;
+    font-family: 'PingFang SC', 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', STHeitiSC-Light, 'Microsoft YaHei', Arial, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings: 'liga', 'kern';
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+body{
+    font-size: 1.2rem;
+}
+
+textarea,
+pre {
+    resize: none;
+    font-family: 'Consolas';
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+    display: block;
+    min-height: 12px;
+    min-width: 12px;
+    border-radius: 6px;
+    background-color: rgb(217, 217, 217);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    display: block;
+    min-height: 12px;
+    min-width: 12px;
+    border-radius: 6px;
+    background-color: rgb(159, 159, 159);
+}
+
+@font-face {font-family: "xh-live-iconfont";
+    src: url('iconfont.eot?t=1568963459295'); /* IE9 */
+    src: url('iconfont.eot?t=1568963459295#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAWIAAsAAAAACwQAAAU8AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDKAqIGIZsATYCJAMYCw4ABCAFhU0HdhuACcgOJaHAwFBQIAFlBE9rr/Nu9zbAqKPiEkmgyFHBV36h2gpZWScqTC2xkPfz79l3bj03RTJiHszMWzBYqNMmaafgwOmu28VA6ZPTBfCotkt/Uf9zLPUyge/9a5FTiyyLyq3Bo+hw4dFFE91AphPkDWMXl3E1gU6zpkP7G69gwSLTdgrEC6/sBEvMJpcwQ7ux5ByZId6CUXv1gO4UgDfuz8dvmBsWUKkTaNc6ud/ghtXfyr+u1iv/K25JCiT684A5joRtIBPXub4rej+xTa9T8hlslm+cBd+q/2/4Vm7LZvsvj1BJspoooOm6IfZAW++U3BQSfKsQUvGtUkjiW5VHtr9yaFNjU+mxdQLEMUC8h9htX1LO5rztK7jcYCFNdjtlJUnaWKQnjZSB1O/UsfdgSQ1xODtGd+kSa83leP3uPEOgRGZS2VDux4AtRjJlxI0kZLOcLZ8Xojh5AGAgEhrGowee1SpLrYqzf4fRbgiQew4oBydQxJZz88le9jdvv7iIeu58Tet+gjBicZ/W4QbE0F5VGd2D2WSMYku5ncmcRkjkCaksQbmkaZ+IZDQJ+Y1c7gZlEOPkMEKJEYJIDQEXR5Z9bUkHFkbS2p5iFvPD+w6MlnA4+Wq5QX1tgmP/G1XG9Ou32I0OgzQ4CtBS96bKhJHNiXQpP5zkENdRbQ2A1msLiBfeqEPgITdgRMDdKK8lJ7MHlCncwdQ0IZNgWV5wd2iDrQIWDbodP/tqdfpMs/XTwD3nmHoHw5g05O/t9SPNEDtvgPyaiWHu4KZRG9HqH+Jzs5VpdtMXxrsPQhbV3357PdKgGK6H6nsucYX3FyqgkDNMBWHhbtKgUDJ1Nw1L3j0ja+eTRLjmw7RT14DUqe6ANcFxaA0Eh8zfoeIlu8L3V82T5Z4ri8+hnuvMV+W77KOjpaemn7wG7C+ja/vt0Ezl06tbW1enHzXEjjiY+Ci/n9FlGdAfels/pB84dGhAz2gOWeqh1Hlaw2bVPMv8gPmntvstM82j5uyPBPk9Yo7mDvdDTLDzaetnzDUdVdc9eTCiCFEl86arejNz7WcVYwquKqB6P+ylwJkndB5acGjhK89/8zd5lvr7LP3N09K7f4/5O0/e9lu66re9r6+FeaeXf0J/RL839iS8R76C3nMkp9ScOXP6TOPV6iOPNK9sVlV+NW8xmlfcmy2v5Gt7e/v0B/SteuCTMacd76FXyPfg5Nj3HO1Ta06fOU0YP2mugxzEGGbH1NrHQCdAo6WcfhpA05MhtQCabMrEpa5pOtSj17nF7uMvW+4cy3+1EN/0rI/alruwsn2RdhW15X+rvOa4LCs1e8lif1NWi1WcscQqdOphGtBCgz7uyzBSO0boj8kZqLRZgaTfdGTGLodalwMo+gnQaYt8fJch/aAXuQDYtBdAmHcWKr3+QzLvX0SmRg3URmOFpuRhr4dOVxE7Y5fVOI7XRUVnXHTTDW201xUKSsYOcdzqmeH3NoszEku9TpSb/M5oVl/hO3kxGvOGgvScmbOz04wYFKNj7BNrlufG4xItRUMBeqN6PdHvD9HhaKhRdMVneuLx8NJZs6S8T5rpCgUA2xMlcooTudEatKF5uYQESfZ6cdgrHjP45cHNRDNKea8jkjVNzSlac0QSL08UFZPKq0ebY6bZLZCMLtiq71pqY5rJ5orrHglttkaFBNA2tvOI/CgRQgvnb9ZI5BI3k6dFLGypWWgyqa5u5viGwFNZBJ20PymhQ3pkQEZkQmbofnLdvt4Z8zSEnFG3LTJxDhWdKzrPOx8A') format('woff2'),
+    url('iconfont.woff?t=1568963459295') format('woff'),
+    url('iconfont.ttf?t=1568963459295') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+    url('iconfont.svg?t=1568963459295#xh-live-iconfont') format('svg'); /* iOS 4.1- */
+  }
+  
+  .xh-live-iconfont {
+    font-family: "xh-live-iconfont" !important;
+    font-size: 14px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .xh-liveic_Dashboard:before {
+    content: "\e618";
+    margin-right: .5rem
+  }
+  
+  .xh-liveic_Dashboard1:before {
+    content: "\e619";
+    margin-right: .5rem
+  }
+  
+  .xh-liveic_Dashboard2:before {
+    content: "\e61a";
+    margin-right: .5rem
+  }
+  
+  .xh-liveic_Dashboard3:before {
+    content: "\e61b";
+    margin-right: .5rem
+  }
+  
+  .xh-liveic_Dashboard4:before {
+    content: "\e61c";
+    margin-right: .5rem
+  }
