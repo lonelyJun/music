@@ -6,7 +6,7 @@ let bookList = []
 describe('测试BookDom', () => {
   before(() => {
     mongoose.connect(
-      'mongodb://39.98.70.116:27017/alumTest2',
+      'mongodb://localhost:27017/test',
       { useMongoClient: true },
       err => {
         if (!err) {
@@ -24,7 +24,7 @@ describe('测试BookDom', () => {
   //   })
   // })
   it('测试查询所有的专辑', done => {
-    AlbumDao.findAllAlbums((err, albums) => {
+    AlbumDao.findAll((err, albums) => {
       assert(albums.length > 0)
       done()
     })
