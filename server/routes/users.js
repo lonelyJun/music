@@ -1,37 +1,50 @@
 var express = require("express");
 var router = express.Router();
-var dao = require("../dao/UserDao");
+var Dao = require("../dao/UserDao");
 
 /* GET users listing. */
-router.get("/", function(req, res, next) {
-  dao.findAllUsers((err, ad) => {
-    res.send(ad);
+router.get("/", function (req, res, next) {
+  Dao.findAll((result) => {
+    res.json(ad);
   });
 });
 
 /* Post regist */
-router.post("/regist", function(req, res, next) {
+router.post("/regist", function (req, res, next) {
   let newData = req.body;
-  dao.addNewUser(newData, (err, nd) => {
-    res.send(nd);
+  Dao.addData(newData, result => {
+    res.send(result);
   });
 });
 
 /* Post login */
-router.post("/login", function(req, res, next) {
+router.post("/login", function (req, res, next) {
   let userInfo = req.body;
-  dao.findOneByUsername(userInfo.user_name, (err, result) => {
-    if (!result || result.length == 0) {
-      res.send({ code: 1, msg: "查找不到该用户" });
-    } else if (err) {
-      res.send({ code: 1, msg: err });
-    } else if (result.password != userInfo.password) {
-      res.send({ code: 1, msg: "密码不正确" });
+  dao.findOneByUsername(userInfo.user_name, result => {
+    let res = result.data;
+    if (!res || res.length == 0) {
+      res.send({
+        code: 1,
+        msg: "查找不到该用户"
+      });
+    } else if (result.code == 1) {
+      res.send({
+        code: 1,
+        msg: result.msg
+      });
+    } else if (res.password != userInfo.password) {
+      res.send({
+        code: 1,
+        msg: "密码不正确"
+      });
     } else {
       res.send({
         code: 0,
-        msg: "成功",
-        data: { id: result._id, user_name: result.user_name }
+        msg: result.msg,
+        data: {
+          id: res._id,
+          user_name: res.user_name
+        }
       });
     }
   });

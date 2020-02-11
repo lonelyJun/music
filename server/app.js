@@ -3,8 +3,9 @@ var path = require("path");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
-// var booksRouter = require("./routes/books");
 var albumsRouter = require("./routes/albums");
+var singersRouter = require("./routes/singers");
+var songsRouter = require("./routes/songs");
 
 var app = express();
 
@@ -17,12 +18,15 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({
+  extended: false
+}));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/admin/users", usersRouter);
-// app.use("/books", booksRouter);
 app.use("/albums", albumsRouter);
+app.use("/singers", singersRouter);
+app.use("/songs", songsRouter);
 
 module.exports = app;

@@ -1,0 +1,18 @@
+GET http://localhost:8085/singers
+
+###
+
+POST http://localhost:8085/singers/addSinger
+content-type: application/json
+
+{
+      "singer_name": "周杰伦",
+      "singer_sex": "男",
+      "singer_birth": "Sun Feb 18 1979 00:00:00 GMT+0800 (中国标准时间)",
+      "link": "",
+      "headImg": ""
+}
+
+
+# ###
+# DELETE http://localhost:3000/books/5e1596ac2527d22850c19dd8

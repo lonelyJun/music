@@ -1,0 +1,39 @@
+GET http://localhost:8085/songs
+
+###
+
+POST http://localhost:8085/songs/addSong
+content-type: application/json
+
+{
+  "song_name":"东风破",
+  "link":"",
+  "singers": [],
+  "album": null
+}
+
+###
+GET http://localhost:8085/songs/songDetail?songId=5e41a17c641bfa16d893a455
+
+###
+
+
+POST http://localhost:8085/songs/addSinger
+content-type: application/json
+
+{
+  "songId":"5e41a17c641bfa16d893a455",
+  "singerId":"5e41817cff44d029a02082b9"
+}
+
+###
+
+# POST http://localhost:8085/songs/addAlbum
+# content-type: application/json
+
+# {
+#   "songId":"5e41a17c641bfa16d893a455",
+#   "albumId":"5e41817cff44d029a02082b9"
+# }
+
+# DELETE http://localhost:3000/books/5e1596ac2527d22850c19dd8

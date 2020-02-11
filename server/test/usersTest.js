@@ -5,11 +5,11 @@ const assert = require("assert");
 describe("测试User数据", () => {
   before(() => {
     mongoose.connect(
-      "mongodb://localhost:27017/test",
-      { useMongoClient: true },
+      "mongodb://localhost:27017/test", {
+        useMongoClient: true
+      },
       err => {
-        if (!err) {
-        }
+        if (!err) {}
       }
     );
   });
@@ -17,8 +17,11 @@ describe("测试User数据", () => {
     mongoose.disconnect();
   });
   it("测试添加一用户", done => {
-    dao.addNewUser(
-      { user_name: "张峻郡", password: "12345678", level: 0 },
+    dao.addData({
+        user_name: "张峻郡",
+        password: "12345678",
+        level: 0
+      },
       (err, nd) => {
         if (!err) {
           assert(nd._id != null);
@@ -28,7 +31,7 @@ describe("测试User数据", () => {
     );
   });
   it("测试查询所有用户", done => {
-    dao.findAllUsers((err, ad) => {
+    dao.findAll((err, ad) => {
       if (!err) {
         assert(ad.length > 0);
       }

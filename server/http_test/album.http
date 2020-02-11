@@ -1,0 +1,38 @@
+GET http://localhost:8085/albums
+
+###
+
+POST http://localhost:8085/albums/addAlbum
+content-type: application/json
+
+{
+  "album_name": "东风破",
+  "public_time": "Fri Jan 11 2008 00:00:00 GMT+0800 (中国标准时间)",
+  "price":98,
+  "cover":
+    "http://imgcache.qq.com/music/photo/album_300/08/300_albumpic_3751508_0.jpg",
+  "singer":[]
+}
+
+###
+
+POST http://localhost:8085/albums/addSinger
+content-type: application/json
+
+{
+  "albumId":"5e41e44c0a767c299492091f",
+  "singerId":"5e41817cff44d029a02082b9"
+}
+
+###
+
+POST http://localhost:8085/albums/addSong
+content-type: application/json
+
+{
+  "albumId":"5e41e44c0a767c299492091f",
+  "songId":"5e41a17c641bfa16d893a455"
+}
+
+# ###
+# DELETE http://localhost:3000/books/5e1596ac2527d22850c19dd8
