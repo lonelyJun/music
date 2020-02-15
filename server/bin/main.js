@@ -10,10 +10,10 @@ const server = http.createServer(app);
 var env = process.env.NODE_ENV || "development";
 let DB_URL = "";
 if ("development" === env) {
-  DB_URL = "0.0.0.0";
+  DB_URL = "39.98.41.120";
   DB_NAME = "test";
 } else {
-  DB_URL = "127.0.0.1";
+  DB_URL = "39.98.41.120";
   DB_NAME = "musicDB";
 }
 
@@ -22,7 +22,7 @@ mongoose.connect(
   { useMongoClient: true },
   err => {
     if (!err) {
-      server.listen(8085, err => {
+      server.listen(3003, err => {
         console.log("express 服务已打开");
       });
     } else {

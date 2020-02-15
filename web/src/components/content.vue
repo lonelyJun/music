@@ -3,6 +3,7 @@
         <div class="add">
             <span class="search-t">
                 <el-input sime="small" v-model="search" placeholder="请输入查询内容"></el-input>
+                <el-button type="primary" @click="searchT()">搜索</el-button>
             </span>
             <el-button type="primary" @click="add()">添加专辑</el-button>
         </div>
@@ -195,6 +196,9 @@ export default {
         }
     },
     methods: {
+        searchT () {
+            
+        },
         formatTD (s, prop) {
             if (s instanceof Array) {
                 return s.map(d => d[prop]).join('， ')
