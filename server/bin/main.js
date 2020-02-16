@@ -10,10 +10,10 @@ const server = http.createServer(app);
 var env = process.env.NODE_ENV || "development";
 let DB_URL = "";
 if ("development" === env) {
-  DB_URL = "39.98.151.153";
+  DB_URL = "39.98.41.120";
   DB_NAME = "test";
 } else {
-  DB_URL = "39.98.151.153";
+  DB_URL = "39.98.41.120";
   DB_NAME = "musicDB";
 }
 
