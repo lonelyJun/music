@@ -1,7 +1,7 @@
-GET http://localhost:8085/admin/users
+GET http://localhost:3000/admin/users
 
 ############
-POST http://localhost:8085/admin/users/regist
+POST http://localhost:3000/admin/users/regist
 content-type: application/json
 
 {
@@ -10,10 +10,10 @@ content-type: application/json
 }
 
 ############
-POST http://localhost:8085/admin/users/login
+POST http://localhost:3000/admin/users/login
 content-type: application/json
 
 {
-  "user_name":"张峻郡",
+  "user_name":"桐人",
   "password":"12345678"
 }

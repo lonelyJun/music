@@ -12,17 +12,19 @@ router.get("/", function (req, res, next) {
 /* Post regist */
 router.post("/regist", function (req, res, next) {
   let newData = req.body;
+  if (!newData.level)
+    newData.level = 0;
   Dao.addData(newData, result => {
-    res.send(result);
+    res.json(result);
   });
 });
 
 /* Post login */
 router.post("/login", function (req, res, next) {
   let userInfo = req.body;
-  dao.findOneByUsername(userInfo.user_name, result => {
-    let res = result.data;
-    if (!res || res.length == 0) {
+  Dao.findOneByUsername(userInfo.user_name, result => {
+    let doc = result.data;
+    if (!doc || doc.length == 0) {
       res.send({
         code: 1,
         msg: "查找不到该用户"
@@ -32,7 +34,7 @@ router.post("/login", function (req, res, next) {
         code: 1,
         msg: result.msg
       });
-    } else if (res.password != userInfo.password) {
+    } else if (doc.password != userInfo.password) {
       res.send({
         code: 1,
         msg: "密码不正确"
@@ -42,8 +44,8 @@ router.post("/login", function (req, res, next) {
         code: 0,
         msg: result.msg,
         data: {
-          id: res._id,
-          user_name: res.user_name
+          id: doc._id,
+          user_name: doc.user_name
         }
       });
     }
@@ -54,7 +56,7 @@ router.post("/login", function (req, res, next) {
 router.post("/setLevel", function (req, res, next) {
   let level = req.body.level;
   let id = req.body.id
-  dao.setLevelById(id, level, result => {
+  Dao.setLevelById(id, level, result => {
     res.json(result)
   })
 });
