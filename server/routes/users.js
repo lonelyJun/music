@@ -50,4 +50,13 @@ router.post("/login", function (req, res, next) {
   });
 });
 
+//设置用户等级
+router.post("/setLevel", function (req, res, next) {
+  let level = req.body.level;
+  let id = req.body.id
+  dao.setLevelById(id, level, result => {
+    res.json(result)
+  })
+});
+
 module.exports = router;

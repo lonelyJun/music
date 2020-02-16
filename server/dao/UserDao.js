@@ -37,6 +37,18 @@ const deleteUserById = (id, callback) => {
   });
 };
 
+//设置权限等级
+const setLevelById = (id, level, callback) => {
+  ModelObj.updateOne({
+    _id: id
+  }, {
+    level: level
+  }, (err, result) => {
+    callback(daoDataPackage(err, result))
+  })
+}
+
+//添加喜爱歌曲
 const addSongToFavById = (id, songId, callback) => {
   ModelObj.updateOne({
     _id: id
@@ -54,5 +66,6 @@ module.exports = {
   findAll,
   deleteUserById,
   findOneByUsername,
-  addSongToFavById
+  addSongToFavById,
+  setLevelById
 };

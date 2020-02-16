@@ -87,5 +87,13 @@ api = {
       albumId: String,
       singerId: String | Array
     }
+  },
+  "设置用户等级": {
+    url: '/users/setLevel',
+    method: 'POST',
+    data: {
+      id: String,
+      level: Number
+    }
   }
 }
