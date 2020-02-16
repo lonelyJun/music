@@ -10,6 +10,8 @@ router.get("/", function (req, res, next) {
   });
 });
 
+
+
 router.get("/albumDetail", function (req, res, next) {
   let id = req.body.albumId;
   let userId = req.body.userId
@@ -21,7 +23,7 @@ router.get("/albumDetail", function (req, res, next) {
       let data = result.data;
       if (data.song) {
         data.songs.forEach(song => {
-          if (userId.indexOf(song) == -1) {
+          if (song.users.includes(userId) == -1) {
             song.fav = false
           } else {
             song.fav = true
@@ -103,11 +105,20 @@ router.post("/addSong", function (req, res) {
   });
 });
 
+router.post("/rename", function (req, res, next) {
+  let id = req.body.albumId;
+  Dao.updateAlbumNameById(id, doc => {
+    res.json(doc);
+  })
+});
+
 router.delete("/:id", function (req, res, next) {
   let id = req.params.id;
   Dao.deleteOneById(id, result => {
     res.json(err);
   });
 });
+
+
 
 module.exports = router;

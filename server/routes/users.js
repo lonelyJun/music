@@ -45,7 +45,8 @@ router.post("/login", function (req, res, next) {
         msg: result.msg,
         data: {
           id: doc._id,
-          user_name: doc.user_name
+          user_name: doc.user_name,
+          level: doc.level
         }
       });
     }
