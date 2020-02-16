@@ -12,6 +12,8 @@ router.get("/", function (req, res, next) {
 /* Post regist */
 router.post("/regist", function (req, res, next) {
   let newData = req.body;
+  if (!newData.level)
+    newData.level = 0;
   Dao.addData(newData, result => {
     res.send(result);
   });
@@ -20,7 +22,7 @@ router.post("/regist", function (req, res, next) {
 /* Post login */
 router.post("/login", function (req, res, next) {
   let userInfo = req.body;
-  dao.findOneByUsername(userInfo.user_name, result => {
+  Dao.findOneByUsername(userInfo.user_name, result => {
     let res = result.data;
     if (!res || res.length == 0) {
       res.send({
@@ -54,7 +56,7 @@ router.post("/login", function (req, res, next) {
 router.post("/setLevel", function (req, res, next) {
   let level = req.body.level;
   let id = req.body.id
-  dao.setLevelById(id, level, result => {
+  Dao.setLevelById(id, level, result => {
     res.json(result)
   })
 });
