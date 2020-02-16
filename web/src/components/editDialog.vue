@@ -39,6 +39,8 @@
 </template>
 <script>
 import Add from './multAdd'
+import { addAlb } from '@/service/service.js'
+
 export default {
     props: ['isShow', 'btnName', 'value', 'listData', 'title'],
     data () {
@@ -59,9 +61,20 @@ export default {
         }
     },
     methods: {
-        confirmSure () {
-
-            this.handleCancel()
+        async confirmSure () {
+            let param = {
+                album_name: this.editData.album_name,
+                public_time: new Date(this.editData.public_time).getTime(),
+                cover: this.editData.cover,
+            }
+            const res = await addAlb(param)
+            console.log(res)
+            if (res.code === 0) {
+                this.$message.success('保存成功')
+                this.handleCancel()
+            } else {
+                this.$message.eror('保存失败')
+            }
         },
         handleCancel () {
             this.$emit('update:isShow', false)

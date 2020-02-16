@@ -64,12 +64,14 @@ export default {
                 password: this.form.password
             }
             const res = await userRegiest(param)
-            if (res._id) {
+            if (res.code === 0) {
                 this.$message.success('注册成功')
                 this.status = true
                 Object.keys(this.form).forEach(p => {
                     this.$set(this.form, p, '')
                 })
+            } else {
+                this.$message.success('注册失败')
             }
         },
         async login () {
@@ -80,8 +82,8 @@ export default {
             }
             const res = await login(param)
             if (res.code === 0) {
-                sessionStorage['user'] = true
-                this.$router.replace({path: '/'})
+                sessionStorage['info'] = res.data.id
+                this.$router.replace({path: '/home'})
             } else {
                 this.$message.error(res.msg)
                 return
@@ -97,7 +99,7 @@ export default {
         background: url('/static/img/back.png') no-repeat center;
         position: relative;
         .user-login{
-            width: 20%;
+            width: 40rem;
             position: absolute;
             border: 1px solid #ccc;
             top: 30%;
@@ -106,10 +108,10 @@ export default {
             display: flex;
             flex-direction: column;
             background:linear-gradient(90deg,#f1f3ff 0%, #576b73);
-            height: 33%;
+            height: 30rem;
         }
         .regiest {
-            height: 40%;
+            height: 35rem;
         }
         .name {
             font-size: 2.4rem;

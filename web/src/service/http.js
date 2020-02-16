@@ -22,20 +22,3 @@ export const post = (url, param = {}, opt = {}) => {
 		else if(opt.simpleFormData)  return formPostSimple(url, param, opt)
 	return axios.post(url, param, opt)
 }
-axios.interceptors.response.use(
-	(data) => {
-		return data
-	},
-	(err) => {
-		const t = err.response ? err.response.status : 302
-		if (t === 302) {
-			me.$message.error('人员信息缺失，获取信息失败，请重新登录')
-			setTimeout(_ => {
-				sessionStorage.clear()
-				location.replace('https://login.xinhua-news.com/loginSSO.html?from=LiveSP&service=http%3A%2F%2Flive.xinhua-news.cn%2F&ssoPageType=SSO_PUBLIC_PAGE&terminal=WEB')
-			}, 1000)
-		} else {
-			me.$message.warning('请求失败')
-		}
-	}
-)

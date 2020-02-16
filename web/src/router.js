@@ -4,11 +4,11 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/home',
       component: () => import('@/components/home'),
     },
     {
-      path: '/login',
+      path: '/',
       component: () => import('@/components/login'),
     },
   ]

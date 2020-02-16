@@ -3,7 +3,7 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path')
-let _urls = `http://172.16.168.63:8085`
+let _urls = `http://39.98.151.153:3000`
 const port = 8005;
 module.exports = {
     dev: {
@@ -18,7 +18,19 @@ module.exports = {
             '/albums': {
                 target: _urls,
                 changeOrigin: true,
-            }
+            },
+            '/songs': {
+                target: _urls,
+                changeOrigin: true,
+            },
+            '/singers': {
+                target: _urls,
+                changeOrigin: true,
+            },
+            '/users': {
+                target: _urls,
+                changeOrigin: true,
+            },
         },
 
         // Various Dev Server settings

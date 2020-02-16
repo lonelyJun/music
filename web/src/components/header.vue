@@ -17,17 +17,17 @@ export default {
         return {
             list: [
                 {
-                    name: '音乐专辑管理',
+                    name: '音乐专辑',
                     id: 'musicMag'
                 },
-                {
-                    name: '我的收藏',
-                    id: ''
-                },
-                {
-                    name: '歌曲统计',
-                    id: ''
-                }
+                // {
+                //     name: '我的收藏',
+                //     id: ''
+                // },
+                // {
+                //     name: '歌曲统计',
+                //     id: ''
+                // }
             ],
             isMe: 0
         }

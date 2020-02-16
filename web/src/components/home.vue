@@ -23,7 +23,10 @@ export default {
         Content
     },
     mounted () {
-        
+        if (!sessionStorage['info']) {
+            this.$message.error('请先登录')
+            this.$router.replace({ path: '/' })
+        }
     },
     methods: {
         switchMusic (s) {
