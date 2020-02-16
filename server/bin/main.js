@@ -23,7 +23,7 @@ mongoose.connect(
   },
   err => {
     if (!err) {
-      server.listen(3003, err => {
+      server.listen(3000, err => {
         console.log("express 服务已打开");
       });
     } else {
