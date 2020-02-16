@@ -34,7 +34,7 @@ api = {
     method: 'GET',
   },
   "返回某首歌信息": {
-    url: '/songs/songDetail?songId=' + songId,
+    url: '/songs/songDetail?songId=' + songId + "&userId=" + userId,
     method: 'GET'
   },
   "给某首歌添加歌手": {
@@ -46,7 +46,7 @@ api = {
     }
   },
   "收藏歌曲": {
-    url: '/songs/addSinger',
+    url: '/songs/addUser',
     method: 'POST',
     data: {
       songId: String,
@@ -81,11 +81,23 @@ api = {
     }
   },
   "给专辑添加歌曲": {
-    url: '/albums/addSinger',
+    url: '/albums/addSong',
     method: 'POST',
     data: {
       albumId: String,
       singerId: String | Array
+    }
+  },
+  "删除专辑": {
+    url: '/albums/' + albumId,
+    method: 'DELETE',
+    data: {}
+  },
+  "修改id名": {
+    url: '/albums/rename',
+    method: 'POST',
+    data: {
+      albumId: String
     }
   },
   "设置用户等级": {

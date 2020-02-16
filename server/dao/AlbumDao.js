@@ -14,6 +14,18 @@ const addData = (newData, callback) => {
   })
 }
 
+//由专辑名称修改专辑名
+const updateAlbumNameById = (id, newName, callback) => {
+  ModelObj.update({
+    _id: id
+  }, {
+    album_name: newName
+  }, (err, updateResult) => {
+    callback(daoDataPackage(err, updateResult));
+  })
+}
+
+
 //由专辑ID添加歌手
 const addSingersById = (id, singers, callback) => {
   if ((typeof (singers) != 'string')) {
@@ -27,9 +39,9 @@ const addSingersById = (id, singers, callback) => {
       }
     }, function (
       err,
-      updateRestult
+      updateResult
     ) {
-      callback(daoDataPackage(err, updateRestult));
+      callback(daoDataPackage(err, updateResult));
 
     })
   } else {
@@ -41,9 +53,9 @@ const addSingersById = (id, singers, callback) => {
       }
     }, function (
       err,
-      updateRestult
+      updateResult
     ) {
-      callback(daoDataPackage(err, updateRestult));
+      callback(daoDataPackage(err, updateResult));
     })
   }
 
@@ -62,9 +74,9 @@ const addSongsById = (id, songs, callback) => {
       }
     }, function (
       err,
-      updateRestult
+      updateResult
     ) {
-      callback(daoDataPackage(err, updateRestult));
+      callback(daoDataPackage(err, updateResult));
     })
   } else {
     ModelObj.update({
@@ -75,9 +87,9 @@ const addSongsById = (id, songs, callback) => {
       }
     }, function (
       err,
-      updateRestult
+      updateResult
     ) {
-      callback(daoDataPackage(err, updateRestult));
+      callback(daoDataPackage(err, updateResult));
     })
   }
 }
@@ -129,5 +141,6 @@ module.exports = {
   addData,
   addSingersById,
   addSongsById,
-  deleteAll
+  deleteAll,
+  updateAlbumNameById
 }

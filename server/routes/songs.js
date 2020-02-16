@@ -33,7 +33,13 @@ router.post("/addSong", function (req, res, next) {
 
 router.get("/songDetail", function (req, res, next) {
   let id = req.body.songId;
+  let userId = req.body.userId;
   Dao.findOneById(id, result => {
+    if (result.data.users.includes(userId) == -1) {
+      result.data.fav = false;
+    } else {
+      result.data.fav = true;
+    }
     res.json(result);
   });
 });
