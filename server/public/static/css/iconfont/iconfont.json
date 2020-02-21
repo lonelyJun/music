@@ -1,0 +1,44 @@
+{
+  "id": "1427052",
+  "name": "live",
+  "font_family": "xh-live-iconfont",
+  "css_prefix_text": "xh-live",
+  "description": "直播平台",
+  "glyphs": [
+    {
+      "icon_id": "10983174",
+      "name": "myTask",
+      "font_class": "ic_Dashboard",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "10983175",
+      "name": "draft",
+      "font_class": "ic_Dashboard1",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "10983178",
+      "name": "todayLive",
+      "font_class": "ic_Dashboard2",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "10983180",
+      "name": "myLive",
+      "font_class": "ic_Dashboard3",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "10983181",
+      "name": "allLive",
+      "font_class": "ic_Dashboard4",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    }
+  ]
+}
