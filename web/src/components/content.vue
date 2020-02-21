@@ -1,5 +1,5 @@
 <template>
-  <div class="content" v-loading="list.length ===0">
+  <div class="content" v-loading="list">
     <div class="add">
       <span class="search-t">
         <el-input sime="small" v-model="search" placeholder="请输入查询内容"></el-input>
@@ -9,7 +9,7 @@
       <el-button type="primary" @click="eidtUser()">修改用户等级</el-button>
     </div>
     <div class="list">
-      <div class="left-table" v-if="list.length > 0">
+      <div class="left-table" v-if="list">
         <div class="thead-list">
           <span
             v-for="(item, index) in tHeadTitle"
@@ -47,7 +47,7 @@
           </span>
         </div>
       </div>
-      <div class="right-form" v-if="list.length > 0">
+      <div class="right-form" v-if="list">
         <span v-for="(itemSee, index) in list_title" :key="index" class="see-l">
           <span class="see-l-name">{{itemSee.name}}</span>
           <span class="see-l-value">
@@ -91,7 +91,7 @@ export default {
       isValue: null,
       isWhichIndex: 0,
       search: "",
-      list: []
+      list: null
     };
   },
   mounted() {
